@@ -31,8 +31,8 @@ export const WelcomeModal = ({ isOpen, onComplete }: WelcomeModalProps) => {
             Welcome to the Talus Vibe Challenge Tools
           </DialogTitle>
           <DialogDescription className="text-base">
-            Built for the Talus community by developers, for developers. 
-            Let's get you started on your creative coding journey!
+            Built for the Talus community by me, for talus team. 
+            Let's get you started on your creative journey!
           </DialogDescription>
         </DialogHeader>
 

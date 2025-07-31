@@ -149,7 +149,7 @@ const Index = () => {
             {/* Footer */}
             <div className="text-center mt-16 space-y-4">
               <div className="text-sm text-muted-foreground">
-                Built for the <strong>#{userData.profession}</strong> community
+                Built for Talus
               </div>
               <div className="text-xs text-muted-foreground">
                 "No Frog Left Behind" • Powering the Autonomous AI Economy
