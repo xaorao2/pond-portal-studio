@@ -123,23 +123,20 @@ const Index = () => {
               </div>
 
               {/* Talus Logo with Orb Background Effect */}
-              <div className="relative mx-auto flex items-center justify-center">
+              <div className="logo-orb-container relative mx-auto w-40 h-40">
                 {/* Background Orb - Larger for halo effect */}
-                <div className="relative">
-                  <div className="w-40 h-40 rounded-full bg-gradient-orb talus-shadow animate-pulse" />
-                  <div className="absolute inset-0 w-40 h-40 rounded-full bg-gradient-talus opacity-40 animate-ping" />
+                <div className="orb-background absolute inset-0">
+                  <div className="w-full h-full rounded-full bg-gradient-orb talus-shadow animate-pulse" />
+                  <div className="absolute inset-0 w-full h-full rounded-full bg-gradient-talus opacity-30 animate-ping" />
                 </div>
                 
                 {/* Talus Logo - Positioned on top */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative z-10">
-                    <img 
-                      src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
-                      alt="Talus Logo" 
-                      className="w-20 h-20 rounded-full shadow-2xl border-2 border-white/30 backdrop-blur-sm"
-                    />
-                    <div className="absolute inset-0 w-20 h-20 rounded-full bg-white/10 animate-pulse" />
-                  </div>
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <img 
+                    src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
+                    alt="Talus Logo" 
+                    className="talus-logo w-16 h-16 rounded-full shadow-2xl border border-white/40 backdrop-blur-sm bg-white/10"
+                  />
                 </div>
               </div>
             </div>
