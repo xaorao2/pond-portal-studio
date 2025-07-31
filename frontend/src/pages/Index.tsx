@@ -25,7 +25,7 @@ const Index = () => {
       id: "loreweave" as Tool,
       title: "Loreweave Tracker",
       description: "Track and manage your collected Loreweaves",
-      icon: "💎",
+      icon: <img src="https://pbs.twimg.com/media/GxLBb8XXYAEi64U?format=jpg&name=tiny" alt="Loreweave" className="w-12 h-12 mx-auto object-contain" />,
       component: <LoreweaveCounter />
     },
     {
