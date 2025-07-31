@@ -160,12 +160,24 @@ const Index = () => {
             </div>
 
             {/* Footer */}
-            <div className="text-center mt-16 space-y-4">
-              <div className="text-sm text-muted-foreground">
-                Built for Talus
+            <div className="text-center mt-16 space-y-6">
+              {/* Talus Logo in Footer */}
+              <div className="flex items-center justify-center space-x-4">
+                <img 
+                  src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
+                  alt="Talus Logo" 
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="text-lg font-bold bg-gradient-talus bg-clip-text text-transparent">
+                  Built for Talus Vibe Coding Challenge
+                </div>
               </div>
-              <div className="text-xs text-muted-foreground">
-                "No Frog Left Behind" • Powering the Autonomous AI Economy
+              
+              <div className="text-sm text-muted-foreground space-y-2">
+                <div>Tools for the Talus ecosystem • #TallysVibeCode</div>
+                <div className="text-xs">
+                  "No Frog Left Behind" • Powering the Autonomous AI Economy
+                </div>
               </div>
             </div>
           </div>
