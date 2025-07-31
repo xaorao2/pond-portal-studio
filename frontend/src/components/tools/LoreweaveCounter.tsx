@@ -20,6 +20,13 @@ export const LoreweaveCounter = () => {
     <Card className="p-8 max-w-md mx-auto">
       <div className="text-center space-y-6">
         <div className="space-y-2">
+          <div className="flex justify-center mb-2">
+            <img 
+              src="https://pbs.twimg.com/media/GxLBb8XXYAEi64U?format=jpg&name=tiny" 
+              alt="Loreweave" 
+              className="w-8 h-8 object-contain"
+            />
+          </div>
           <h3 className="text-2xl font-bold">Loreweave Tracker</h3>
           <p className="text-muted-foreground">Track your collected Loreweaves</p>
         </div>
