@@ -122,22 +122,24 @@ const Index = () => {
                 </p>
               </div>
 
-              {/* Talus Logo and Iridescent Orb */}
-              <div className="relative mx-auto flex items-center justify-center space-x-8">
-                {/* Talus Logo */}
+              {/* Talus Logo with Orb Background Effect */}
+              <div className="relative mx-auto flex items-center justify-center">
+                {/* Background Orb - Larger for halo effect */}
                 <div className="relative">
-                  <img 
-                    src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
-                    alt="Talus Logo" 
-                    className="w-24 h-24 rounded-full shadow-xl border-4 border-white/20"
-                  />
-                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-gradient-talus opacity-30 animate-pulse" />
+                  <div className="w-40 h-40 rounded-full bg-gradient-orb talus-shadow animate-pulse" />
+                  <div className="absolute inset-0 w-40 h-40 rounded-full bg-gradient-talus opacity-40 animate-ping" />
                 </div>
                 
-                {/* Iridescent Orb */}
-                <div className="relative">
-                  <div className="w-32 h-32 rounded-full bg-gradient-orb talus-shadow animate-pulse" />
-                  <div className="absolute inset-0 w-32 h-32 rounded-full bg-gradient-talus opacity-50 animate-ping" />
+                {/* Talus Logo - Positioned on top */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative z-10">
+                    <img 
+                      src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
+                      alt="Talus Logo" 
+                      className="w-20 h-20 rounded-full shadow-2xl border-2 border-white/30 backdrop-blur-sm"
+                    />
+                    <div className="absolute inset-0 w-20 h-20 rounded-full bg-white/10 animate-pulse" />
+                  </div>
                 </div>
               </div>
             </div>
