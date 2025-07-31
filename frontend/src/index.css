@@ -149,4 +149,29 @@
   .tool-card:hover {
     box-shadow: var(--shadow-talus);
   }
+
+  /* Enhanced Logo with Orb Background Effect */
+  .logo-orb-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-orb-container:hover .orb-background {
+    animation: pulse 1.5s ease-in-out infinite, ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .logo-orb-container:hover .talus-logo {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(180, 255, 180, 0.5));
+  }
+
+  .orb-background {
+    transition: all 0.3s ease;
+  }
+
+  .talus-logo {
+    transition: all 0.3s ease;
+  }
 }
