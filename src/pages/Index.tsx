@@ -1,12 +1,163 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import { WelcomeModal } from "@/components/WelcomeModal";
+import { LoreweaveCounter } from "@/components/tools/LoreweaveCounter";
+import { TallyNameGenerator } from "@/components/tools/TallyNameGenerator";
+import { StatusChecker } from "@/components/tools/StatusChecker";
+import { ColorPaletteGenerator } from "@/components/tools/ColorPaletteGenerator";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
+
+type Tool = "loreweave" | "name-generator" | "status-checker" | "color-palette";
+
+interface UserData {
+  name: string;
+  profession: string;
+}
 
 const Index = () => {
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [activeTool, setActiveTool] = useState<Tool | null>(null);
+
+  const tools = [
+    {
+      id: "loreweave" as Tool,
+      title: "Loreweave Tracker",
+      description: "Track and manage your collected Loreweaves",
+      icon: "💎",
+      component: <LoreweaveCounter />
+    },
+    {
+      id: "name-generator" as Tool,
+      title: "Tally Name Generator",
+      description: "Generate unique Tally identities for the Pond",
+      icon: "🐸",
+      component: <TallyNameGenerator />
+    },
+    {
+      id: "status-checker" as Tool,
+      title: "Pond Status Checker",
+      description: "Check if you're part of the Talus ecosystem",
+      icon: "🌊",
+      component: <StatusChecker />
+    },
+    {
+      id: "color-palette" as Tool,
+      title: "Talus Vibe Colors",
+      description: "Generate signature Talus color palettes",
+      icon: "🎨",
+      component: <ColorPaletteGenerator />
+    }
+  ];
+
+  const handleWelcomeComplete = (data: UserData) => {
+    setUserData(data);
+    setShowWelcome(false);
+  };
+
+  const openTool = (toolId: Tool) => {
+    setActiveTool(toolId);
+  };
+
+  const closeTool = () => {
+    setActiveTool(null);
+  };
+
+  const activeTool_obj = tools.find(tool => tool.id === activeTool);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Welcome Modal */}
+      <WelcomeModal 
+        isOpen={showWelcome}
+        onComplete={handleWelcomeComplete}
+      />
+
+      {/* Tool Modal */}
+      <Dialog open={!!activeTool} onOpenChange={() => closeTool()}>
+        <DialogContent className="max-w-2xl p-0">
+          <div className="relative">
+            <Button
+              onClick={closeTool}
+              variant="ghost"
+              size="icon"
+              className="absolute right-4 top-4 z-10"
+            >
+              <X className="w-4 h-4" />
+            </Button>
+            <div className="p-6">
+              {activeTool_obj?.component}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Main Content */}
+      {userData && !showWelcome && (
+        <div className="relative">
+          {/* Background Grid */}
+          <div className="absolute inset-0 talus-grid opacity-40" />
+          
+          {/* Hero Section */}
+          <div className="relative container mx-auto px-6 py-12">
+            <div className="text-center space-y-8 mb-16">
+              <div className="space-y-4">
+                <div className="inline-block px-4 py-2 bg-secondary rounded-full text-sm font-medium">
+                  Talus Vibe Challenge Tools
+                </div>
+                
+                <h1 className="text-5xl font-bold">
+                  Welcome, {userData.name}
+                </h1>
+                
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Professional tools built for the <strong>Talus ecosystem</strong>. 
+                  Perfect for developers participating in the Vibe Coding Challenge.
+                </p>
+              </div>
+
+              {/* Iridescent Orb */}
+              <div className="relative mx-auto">
+                <div className="w-32 h-32 rounded-full bg-gradient-orb talus-shadow animate-pulse mx-auto" />
+                <div className="absolute inset-0 w-32 h-32 rounded-full bg-gradient-talus opacity-50 animate-ping mx-auto" />
+              </div>
+            </div>
+
+            {/* Tools Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {tools.map((tool) => (
+                <div
+                  key={tool.id}
+                  onClick={() => openTool(tool.id)}
+                  className="tool-card group"
+                >
+                  <div className="text-center space-y-4">
+                    <div className="text-4xl mb-4">{tool.icon}</div>
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                      {tool.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {tool.description}
+                    </p>
+                    <div className="w-full h-1 bg-gradient-talus rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="text-center mt-16 space-y-4">
+              <div className="text-sm text-muted-foreground">
+                Built for the <strong>#{userData.profession}</strong> community
+              </div>
+              <div className="text-xs text-muted-foreground">
+                "No Frog Left Behind" • Powering the Autonomous AI Economy
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -2,41 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Talus Network Design System - Matching their exact aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Talus Network inspired */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Talus Brand Colors */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 48 100% 88%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 100% 85%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 180 100% 50%;
 
-    --radius: 0.5rem;
+    /* Talus Signature Gradients */
+    --gradient-talus: linear-gradient(135deg, hsl(180 100% 85%) 0%, hsl(320 100% 85%) 50%, hsl(48 100% 85%) 100%);
+    --gradient-talus-subtle: linear-gradient(135deg, hsl(180 50% 95%) 0%, hsl(320 50% 95%) 50%, hsl(48 50% 95%) 100%);
+    --gradient-orb: radial-gradient(ellipse at center, hsl(180 100% 85%) 0%, hsl(320 100% 85%) 50%, hsl(48 100% 85%) 100%);
+
+    /* Grid and Effects */
+    --grid-color: hsl(220 13% 91% / 0.3);
+    --shadow-talus: 0 10px 30px -10px hsl(180 100% 50% / 0.2);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +109,44 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Talus Signature Components */
+  .talus-gradient {
+    background: var(--gradient-talus);
+  }
+
+  .talus-gradient-subtle {
+    background: var(--gradient-talus-subtle);
+  }
+
+  .talus-orb {
+    background: var(--gradient-orb);
+  }
+
+  .talus-grid {
+    background-image: 
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .talus-shadow {
+    box-shadow: var(--shadow-talus);
+  }
+
+  .talus-button {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg;
+  }
+
+  .tool-card {
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] cursor-pointer;
+  }
+
+  .tool-card:hover {
+    box-shadow: var(--shadow-talus);
   }
 }

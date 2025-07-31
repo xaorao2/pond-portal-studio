@@ -63,6 +63,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			backgroundImage: {
+				'gradient-talus': 'var(--gradient-talus)',
+				'gradient-talus-subtle': 'var(--gradient-talus-subtle)',
+				'gradient-orb': 'var(--gradient-orb)',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
