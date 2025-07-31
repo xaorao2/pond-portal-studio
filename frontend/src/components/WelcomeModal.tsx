@@ -24,14 +24,18 @@ export const WelcomeModal = ({ isOpen, onComplete }: WelcomeModalProps) => {
     <Dialog open={isOpen} onOpenChange={() => {}}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader className="text-center space-y-4">
-          <div className="w-16 h-16 mx-auto rounded-full bg-gradient-talus flex items-center justify-center text-2xl font-bold">
-            🐸
+          <div className="w-20 h-20 mx-auto rounded-full bg-white flex items-center justify-center shadow-lg">
+            <img 
+              src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
+              alt="Talus Logo" 
+              className="w-16 h-16 rounded-full"
+            />
           </div>
           <DialogTitle className="text-2xl font-bold">
             Welcome to the Talus Vibe Challenge Tools
           </DialogTitle>
           <DialogDescription className="text-base">
-            Built for the Talus community by me, for talus team. 
+            Built for the Talus community. Ready to build the vibe? 
             Let's get you started on your creative journey!
           </DialogDescription>
         </DialogHeader>
