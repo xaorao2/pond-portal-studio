@@ -103,8 +103,13 @@ const Index = () => {
           <div className="relative container mx-auto px-6 py-12">
             <div className="text-center space-y-8 mb-16">
               <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-secondary rounded-full text-sm font-medium">
-                  Talus Vibe Challenge Tools
+                <div className="inline-block px-4 py-2 bg-secondary rounded-full text-sm font-medium flex items-center space-x-2">
+                  <img 
+                    src="https://pbs.twimg.com/profile_images/1909615998434508800/pIglsX47_400x400.png" 
+                    alt="Talus" 
+                    className="w-5 h-5 rounded-full"
+                  />
+                  <span>Talus Vibe Challenge Tools</span>
                 </div>
                 
                 <h1 className="text-5xl font-bold">
