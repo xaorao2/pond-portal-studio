@@ -150,7 +150,7 @@ const Index = () => {
                   className="tool-card group"
                 >
                   <div className="text-center space-y-4">
-                    <div className="text-4xl mb-4">{tool.icon}</div>
+                    <div className="flex justify-center items-center mb-4 h-16">{tool.icon}</div>
                     <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                       {tool.title}
                     </h3>
